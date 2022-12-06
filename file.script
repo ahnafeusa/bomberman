@@ -1,0 +1,211 @@
+Script started on 2020-10-23 23:46:25-06:00
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/Project1mdahnafmasud.eusa@csa3:~/CPSC355/Project1$ ./test_Routes1.shjavac Routes1.java[1P./test_Routes1.shjavac Routes1.java[1P./test_Routes1.shchmod u+x test_Routes1..sh[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cjava cpsc331.tutorials.Fibonacci1 10[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pc Fibonacci1.java
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Palias javacjavac Fibonacci1.java cpsc331.tutorials..Fibonacci1 10[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cchmod u+x test_Routes1.sh[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P./test_Routes1.sh
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cjavac Routes1.java[1P./test_Routes1.shjavac Routes1.java[1P./test_Routes1.sh[K./test_Routes1.sh[K[Kmdahnafmasud.eusa@csa3:~/CPSC355/Project1$ [Kmdahnafmasud.eusa@csa3:~/CPSC355/Project1$ gcc main.c -o main
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/Project1mdahnafmasud.eusa@csa3:~/CPSC355/Project1$ ./main Eusa 10 10
+
+
+Total Negative Numbers 39/100 = 1.00% less than 40%
+
+7.57-4.620.03  $  -15.27-10.92  $  8.494.44-3.33
+6.5811.307.10-7.31  $  6.68  $    $  -12.77-7.88
+-15.1910.156.580.47  $  -4.72-11.5414.62-2.47-14.74
+  $  9.44-1.36-13.110.0713.552.7714.81-14.93  $  
+  $  -3.447.9311.77  *  -2.0411.085.1615.29-0.62
+0.25-8.60  $  9.50  $  11.96  $    $  -4.89-0.47
+  $  -3.12  $  6.76  $  -6.29  $    $  -6.688.14
+3.60-11.91-13.6910.36  $  9.00  $  -1.24-7.03-5.91
+1.83  $  -9.744.524.694.83  $  4.34  $  -15.09
+6.30  $  -5.47-6.80-10.51-0.35  $  5.6610.997.09
+
+Total uncovered score of 0.00 points
+
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+Lives: 3
+Score: 0.00
+Bombs: 5
+
+Enter any key to play game, 'H' to see highscores and 'Q' to exit game: play
+
+Enter bomb position(x, y): 5 5
+Bang!! your bomb range is increased by 5 folds
+Total uncovered score of 14.71 points
+
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXX*-+XXX
+XXXX$+$XXX
+XXXX$-$XXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+Lives: 3
+Score: 14.71
+Bombs: 4
+YOU WON
+Thank you for playing the game ! ^-^
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/Project1mdahnafmasud.eusa@csa3:~/CPSC355/Project1$ ./main Eusa 10 10
+
+
+Total Negative Numbers 43/100 = 3.00% more than 40%
+
+13.00-3.48-9.440.40-0.16-7.954.88-13.57  $  -12.46
+11.447.94-10.92-3.864.765.0912.551.931.00-8.95
+-5.86-7.5715.01-13.78-6.47-10.16-13.179.76-13.41-9.11
+6.5614.15-1.34-8.52  $  -12.59  $  11.56-9.099.06
+-9.52-5.43  $  15.065.84-0.10  $  -2.34-9.30  $  
+6.26-3.94-14.53-2.72-14.97-8.88-3.628.38-11.22-4.03
+-2.40  $  14.0913.11  $  10.9410.98  $    *  -13.30
+5.19-0.095.447.3411.14-14.87-12.65  $  -14.83-7.51
+-5.3211.00-11.410.357.19  $  15.31  $    $  -15.36
+1.95  $  -4.87  $  12.257.19  $    $  -0.95  $  
+
+Total uncovered score of 0.00 points
+
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+XXXXXXXXXX
+Lives: 3
+Score: 0.00
+Bombs: 5
+
+Enter any key to play game, 'H' to see highscores and 'Q' to exit game: Q
+Game quit.
+Thank you for playing the game ! ^-^
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/Project1mdahnafmasud.eusa@csa3:~/CPSC355/Project1$ ./main Eusa 10 10[K[K[K[K[K20 20
+
+
+Total Negative Numbers 155/400 = 121.25% less than 40%
+
+0.874.735.88-0.617.12-13.33-11.27-1.2215.40-5.074.11  $  -13.06  $  0.5112.422.26-11.894.07  $  
+12.3413.5112.38-8.03-8.989.995.91  $  -13.9710.46-8.28-4.122.1314.01  $  6.8214.16  $    $    $  
+  $    *  -9.08-13.64-6.7612.35  $    $  6.51-9.63-0.95-14.61-12.8914.9515.49-8.9811.251.15  $  7.78
+-1.91  $  12.445.132.211.67-12.0112.98-10.309.571.854.267.12  $  9.50-12.21-14.389.90-7.38-1.18
+-12.25-13.603.369.983.57  $    $  -9.140.90-7.67-6.50  $  -7.11-14.523.01-0.90  $    $  -14.63-13.84
+  $  -2.3010.471.472.23  $  -2.786.29  $  -1.46-12.756.05-2.13-4.557.15  $  -9.758.86-3.87-11.61
+12.5810.831.384.00-9.050.305.0212.60-9.46  $  -0.80  $  -13.89  $  -8.9415.2015.255.05  $  -12.85
+10.95-3.91-13.532.0113.18  $  14.9013.985.61-14.44  $  -9.760.03  $  6.74-11.05  $  -7.8613.98-2.79
+8.35-1.4710.648.865.58-12.82-8.384.6414.570.063.59-12.96  $  -10.24-2.60-8.68-6.0013.884.02  $  
+11.810.58  $  11.19-6.17-4.0412.52  $  -7.0712.77-0.036.32-2.88  $    $  -8.74-6.0513.097.23-10.54
+  $  -2.85  $  4.50  $  -11.591.0413.721.103.829.999.691.96-7.4912.50-8.32-5.52-15.41  $  -0.57
+  $  -9.44-1.31-5.23-14.01-6.85-11.47-12.17  $    $  12.78-10.95-3.43  $    $  -4.52-10.258.760.10  $  
+-15.09-3.1415.41-0.89-11.1715.38-5.4015.15  $  4.78-3.74-3.336.97-5.88-7.27-2.94-1.826.72-7.3615.27
+7.78  $    $  2.82  $  9.67-1.71-13.742.61-7.046.82-14.25  $    $  -2.867.662.934.59-15.0110.88
+10.061.45  $  -1.00-4.38  $  -3.35-12.13  $  -13.613.357.32  $  12.87-13.8313.04-8.29  $  14.8714.27
+1.1110.03-1.47-4.28-1.66  $  6.72-9.96  $  -13.020.420.441.8114.095.434.019.48-0.3011.17-12.76
+-13.72  $  10.98-13.29  $  6.64-12.78-13.74-6.04  $  -14.464.5510.7910.748.56-8.48  $    $  0.38-5.20
+-4.00-4.0013.66-5.5910.73-13.82  $  1.050.37  $  -7.882.524.71-13.55-12.17-9.171.10-15.451.00-1.13
+  $  2.41-6.43-10.648.69-5.3614.030.37  $  6.525.07-14.591.50-8.432.5711.770.63-15.1515.2815.35
+-14.93  $  7.66  $  -7.95  $  0.1314.85-12.9311.089.463.597.6813.227.53-0.98  $  7.887.233.66
+
+Total uncovered score of 0.00 points
+
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+Lives: 3
+Score: 0.00
+Bombs: 20
+
+Enter any key to play game, 'H' to see highscores and 'Q' to exit game: play
+
+Enter bomb position(x, y): 5 5
+Bang!! your bomb range is increased by 4 folds
+Total uncovered score of -0.72 points
+
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXX+$$XXXXXXXXXXXXX
+XXXX+$-XXXXXXXXXXXXX
+XXXX-++XXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+Lives: 2
+Score: 0.00
+Bombs: 19
+
+Enter any key to play game, 'H' to see highscores and 'Q' to exit game: play
+
+Enter bomb position(x, y): 9 9
+Bang!! your bomb range is increased by 28 folds
+Total uncovered score of -121.21 points
+
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXX+$$-+--$--+XXXXX
+XXXX+$-+$--+--+XXXXX
+XXXX-+++-$-$-$-XXXXX
+XXXX+$+++-$-+$+XXXXX
+XXXX+--++++-$--XXXXX
+XXXX--+$-+-+-$$XXXXX
+XXXX$-+++++++-+XXXXX
+XXXX----$$+--$$XXXXX
+XXXX-+-+$+--+--XXXXX
+XXXX$+--+-+-$$-XXXXX
+XXXX-$--$-++$+-XXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+Lives: 1
+Score: 0.00
+Bombs: 18
+
+Enter any key to play game, 'H' to see highscores and 'Q' to exit game: Q
+Game quit.
+Thank you for playing the game ! ^-^
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/Project1mdahnafmasud.eusa@csa3:~/CPSC355/Project1$ exit
+exit
+
+Script done on 2020-10-23 23:48:55-06:00
