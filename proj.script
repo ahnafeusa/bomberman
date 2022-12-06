@@ -1,0 +1,662 @@
+Script started on 2020-12-09 23:25:15-07:00
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/project2mdahnafmasud.eusa@csa3:~/CPSC355/project2$ gdb proj[13@cc proj.s -g -o[C[C[C[C[C[13Pdb[C[C[C[C[C[13@cc proj.s -g -o[C[C[C[C[C[1Pm4 proj.asm > proj.s
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/project2mdahnafmasud.eusa@csa3:~/CPSC355/project2$ m4 proj.asm > proj.s[12Pgdb proj[13@cc proj.s -g -o[C[C[C[C[C
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/project2mdahnafmasud.eusa@csa3:~/CPSC355/project2$ gcc proj.s -g -o proj[1Pm4 proj.asm > proj.s[12Pgdb proj
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from proj...done.
+(gdb) l
+1	// Md Ahnaf Masud Eusa
+2	// 30075798
+3	// Project part 2
+4	//--------------------
+5	
+6	output1: .string "Invalid number of arguments passed\n"
+7	output2: .string "M should be in the range of 5 to 20\n"
+8	output3: .string "N should be in the range of 5 to 20\n"
+9	output4: .string "%.2f\t"
+10	output5: .string "\n"
+(gdb) l
+11	output6: .string "%s\n"
+12	output7: .string "$\t"
+13	output8: .string "Percentage of negative numbers: %.2f%%\n"
+14	output9: .string "X "
+15	output10: .string "\nUncovered Board:\n"
+16	output11: .string "\nCovered Board:\n"
+17	output12: .string "Percentage of positive numbers: %.2f%%\n"
+18	output13: .string "Percentage of special tiles: %.2f%%\n"
+19	        .balign 4
+20	        .global main
+(gdb) l
+21	
+22	        
+23	        
+24	        
+25	        
+26	        
+27	        
+28	        
+29	        
+30		
+(gdb) l
+31	
+32	main:
+33	        stp     x29, x30, [sp, -16]!
+34	        mov     x29, sp
+35	
+36	        //storing the command line arguments
+37	        mov     x19, x1                      //store the command line arguments in a temp register
+38	
+39	        //validation for number of arguments
+40	        cmp     x0, 3                           //compare number of arguments to 3
+(gdb) l
+41	        b.lt    wrongInput1                     //if less, branch to wrongInput1
+42	        cmp     x0, 4                           //compare number of arguments to 4
+43	        b.gt    wrongInput1                     //if more, branch to wrongInput1
+44	
+45	        //storing 1st argument
+46	        ldr     x0, [x19, 8]                 //load the 1st input passed onto x0
+47	        mov     x26, x0                //move the integer to x20
+48	
+49	        //storing 2nd argument
+50	        ldr     x0, [x19, 16]                //load the 2nd input passed onto x0
+(gdb) l
+51	        bl      atoi                            //convert the argument to integer
+52	        mov     x20, x0                      //move the integer to x21
+53	
+54	        //validation for 2nd argument
+55	        cmp     x20, 10                       //compare it with 5
+56	        b.lt    wrongInput2                     //if less, branch to wrongInput3
+57	        cmp     x20, 200                      //compare it with 20
+58	        b.gt    wrongInput2                     //if more, branch to wrongInput3
+59	
+60	        //storing 3rd argument
+(gdb) l
+61	        ldr     x0, [x19, 24]                //load the 2nd input passed onto x0
+62	        bl      atoi                            //convert the argument to integer
+63	        mov     x21, x0                      //move the integer to x21
+64	
+65	        //validation for 3rd argument
+66	        cmp     x21, 10                       //compare it with 5
+67	        b.lt    wrongInput3                     //if less, branch to wrongInput3
+68	        cmp     x21, 200                      //compare it with 20
+69	        b.gt    wrongInput3                     //if more, branch to wrongInput3
+70	
+(gdb) l
+71	        //seeding the rand
+72	        mov     x0, xzr                         //move 0 to x0
+73	        bl      time                            //call the function time(0)
+74	        bl      srand                           //call the function srand to have different numbers
+75	
+76		ldr	x0, =output6			//load print statement
+77		mov	x1, x26		//pass playerName as argument
+78		bl	printf				//print player name
+79	
+80		//fmov	d0, #0.25
+(gdb) l
+81		//ldr	x0, =output4
+82		//bl	printf
+83	
+84		ldr	x0, =output10			//load print statement
+85		bl	printf				//print "Uncovered Board:"
+86		
+87		mov	x19, xzr			//initialize temp
+88		mov	x27, xzr		//initialize positive percentage
+89	
+90	initialize:
+(gdb) l
+91	
+92	
+93	loop1:
+94	        mov     x0, xzr				//move 0 to x0
+95	        mov     x1, 0                           //move 0 to x1(lower bound)
+96	        mov     x2, 15                          //move 9 to x2(upper bound)
+97	
+98	        bl      randomNum                       //call function randomNum(m,n)
+99	
+100		mov	x0, xzr				//move 0 to x0
+(gdb) l
+101		bl	rand				//call rand()
+102		and	x0, x0, 0xF			//AND 15
+103	
+104		cmp	x0, 6				//compare x0 and 6
+105		b.gt	next				//if greater than, branch to next
+106	
+107		//NEGATIVE FLOAT
+108		fneg	d0, d0				//negating d0
+109		add	x19, x19, 1		//incrementing temp
+110		b	next2				//branch to print statement
+(gdb) l
+111	
+112	next:	
+113		cmp	x0, 9				//compare x0 to 9
+114		b.gt	next2				//if greater than, branch to next2
+115	
+116		//POWERUP	
+117		ldr	x0, =output7			//load print statement
+118		bl	printf				//print "  $  "
+119		b	next3				//branch to next3
+120	
+(gdb) l
+121	next2:
+122	        //POSITIVE FLOAT
+123	        ldr     x0, =output4                    //load print message "%d "
+124	        bl      printf                          //printing random number
+125		add	x27, x27, 1	//increment positive percentage
+126	
+127	next3:
+128	        add     x23, x23, 1                     //increment j
+129	        b       cmp2                            //branch to cmp2
+130	
+(gdb) l
+131	cmp1:
+132	        cmp     x23, x21                     //compare j to cols
+133	        b.lt    loop1                           //if less, branch to loop1
+134	
+135	        add     x22, x22, 1                     //increment i
+136	        mov     x23, xzr                        // j = 0
+137	        ldr     x0, =output5                    //load print message "\n"
+138	        bl      printf                          //print "\n"
+139	
+140	cmp2:
+(gdb) l
+141	        cmp     x22, x20                     //compare i to rows
+142	        b.lt    cmp1                            //if less, branch to cmp1
+143	
+144		sub	x27, x27, x19	//posPercent= posPercent - temp
+145	
+146	//Negative Num Percentage
+147	percentage:
+148		mov	x0, 100				//x0 = 100
+149		scvtf	d0, x19			//d0 = temp
+150		scvtf	d1, x20			//d1 = rows
+(gdb) l
+151		scvtf	d2, x21			//d2 = cols
+152		scvtf	d3, x0				//d3 = 100.0
+153	
+154		fmul	d4, d1, d2			//d4 = rows * cols
+155		fdiv	d0, d0, d4			//d0 = d0(temp)/d4(rows*cols)
+156		fmul	d0, d0, d3			//d0 = d0 * 100.00
+157		//d0 = (temp/(rows*cols))*100
+158		
+159		ldr	x0, =output8			//load print statement
+160		bl	printf				//print	percentage of negative number
+(gdb) l
+161	//Positive Num Percentage
+162	        mov     x0, 100                         //x0 = 100
+163	        scvtf   d0, x27                //d0 = posPercent
+164	        scvtf   d1, x20                      //d1 = rows
+165	        scvtf   d2, x21                      //d2 = cols
+166	        scvtf   d3, x0                          //d3 = 100.0
+167	
+168	        fmul    d4, d1, d2                      //d4 = rows * cols
+169	        fdiv    d0, d0, d4                      //d0 = d0(posPercent)/d4(rows*cols)
+170	        fmul    d0, d0, d3                      //d0 = d0 * 100.00
+(gdb) l
+171	        //d0 = (posPercent/(rows*cols))*100
+172	
+173	        ldr     x0, =output12                    //load print statement
+174	        bl      printf                          //print percentage of negative number
+175	//Special Tiles Percentage
+176		mov	x0, 100				//x0 = 100
+177		add	x1, x27, x19	//x1 = posPercent + temp
+178		sub	x1, x0, x1			//x1 = 100 - x1
+179		scvtf   d0, x1		                //d0 = x1
+180	        scvtf   d1, x20                      //d1 = rows
+(gdb) l
+181	        scvtf   d2, x21                      //d2 = cols
+182	        scvtf   d3, x0                          //d3 = 100.0
+183	
+184	        fmul    d4, d1, d2                      //d4 = rows * cols
+185	        fdiv    d0, d0, d4                      //d0 = d0(specialtilePercentage)/d4(rows*cols)
+186	        fmul    d0, d0, d3                      //d0 = d0 * 100.00
+187	        //d0 = (posPercent/(rows*cols))*100
+188	
+189	        ldr     x0, =output13                    //load print statement
+190	        bl      printf
+(gdb) l
+191	
+192	
+193	//Covered Board
+194		ldr	x0, =output11			//load print statement
+195		bl	printf				//print "Covered Board:"
+196		
+197	board:
+198		mov	x22, 0				//move 0 to i
+199		mov	x23, 0				//move 0 to j
+200	
+(gdb) l
+201	loop2:
+202	        ldr     x0, =output9                    //load print message "X "
+203	        bl      printf                          //printing X
+204	
+205	        add     x23, x23, 1                     //increment j
+206	        b       cmp4                            //branch to cmp2
+207	
+208	cmp3:
+209	        cmp     x23, x21                     //compare j to cols
+210	        b.lt    loop2                           //if less, branch to loop1
+(gdb) l
+211	
+212	        add     x22, x22, 1                     //increment i
+213	        mov     x23, xzr                        // j = 0
+214	        ldr     x0, =output5                    //load print message "\n"
+215	        bl      printf                          //print "\n"
+216	
+217	cmp4:
+218	        cmp     x22, x20                     //compare i to rows
+219	        b.lt    cmp3                            //if less, branch to cmp1
+220	
+(gdb) l
+221	
+222	        ldp x29, x30, [sp], 16                  //ending program
+223	        ret
+224	//---------------------------------------------------------------------------------------
+225	
+226	
+227	//RANDOM NUM
+228	//--This function takes in two integers as input and returns a random number in between--
+229	randomNum:
+230	        stp     x29, x30, [sp, -16]!
+(gdb) l
+231	        mov     x29, sp
+232	
+233	        //x1 is lower bound
+234		//d1 is lower bound in float
+235	        //x2 is upper bound
+236		//d2 is upper bound in float
+237		//x3 is neg
+238	
+239		//x7 is randMax
+240		//d7 is randMax in float
+(gdb) l
+241		//x6 is the random number 
+242		//d6 is the random number in float
+243	
+244	while:
+245	        mov     x0, xzr                         //move 0 to x0
+246	        bl      rand                            //call function rand()
+247	        and     x0, x0, 0xF			//AND with 15 to make it in range of 15
+248		sub	x0, x0, 1			//number -1
+249	
+250		mov	x6, x0				//moving random number to x6
+(gdb) l
+251		scvtf	d6, x6				//store x6 as float in d6
+252		
+253		mov	x7, 2147483647			//store RAND_MAX in x7
+254		scvtf	d7, x7				//store x7 as float in d7
+255	
+256	        scvtf   d8, x1                          //store x1(lower bound) as float in d8
+257	        scvtf   d9, x2                          //store x2(upper bound) as float in d9
+258	
+259		mov	x0, xzr				//move 0 to xo
+260		bl	rand				//call function rand()
+(gdb) l
+261		scvtf	d0, x0				//storing the random number in d0 as float
+262	
+263		fdiv	d0, d0, d7			//rand/RAND_MAX
+264		fadd	d0, d0, d6			//rand(float between 0.0 and 1.0) + d6(float between 0.0 and 15.0)
+265	
+266		fcmp	d0, 0.0				//validation
+267		b.eq	while
+268	
+269	        fcmp    d0, 0.0				//validation
+270	        b.lt    while
+(gdb) l
+271	
+272	        ldp     x29, x30, [sp], 16              //end funtion
+273	        ret                                     //return
+274	
+275	//-------------------------------------------------------------------------------------------------
+276	
+277	wrongInput1:
+278	        ldr x0, =output1                        //printing an exit message
+279	        bl printf
+280	        ldp x29, x30, [sp], 16                  //ending program
+(gdb) l
+281	        ret
+282	
+283	wrongInput2:
+284	        ldr x0, =output2                        //printing an exit message
+285	        bl printf
+286	        ldp x29, x30, [sp], 16                  //ending program
+287	        ret
+288	
+289	wrongInput3:
+290	        ldr x0, =output3                        //printing an exit message
+(gdb) l
+291	        bl printf
+292	        ldp x29, x30, [sp], 16                  //ending program
+293	        ret
+(gdb) b randomNum
+Breakpoint 1 at 0x40099c: file proj.s, line 230.
+(gdb) r
+Starting program: /home/ugc/mdahnafmasud.eusa/CPSC355/project2/proj 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+Invalid number of arguments passed
+[Inferior 1 (process 21373) exited with code 043]
+(gdb) set args Eusa 10 10
+(gdb) r
+Starting program: /home/ugc/mdahnafmasud.eusa/CPSC355/project2/proj Eusa 10 10
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+Eusa
+
+Uncovered Board:
+
+Breakpoint 1, randomNum () at proj.s:230
+230	        stp     x29, x30, [sp, -16]!
+(gdb) n
+231	        mov     x29, sp
+(gdb) n
+while () at proj.s:245
+245	        mov     x0, xzr                         //move 0 to x0
+(gdb) n
+246	        bl      rand                            //call function rand()
+(gdb) n
+247	        and     x0, x0, 0xF			//AND with 15 to make it in range of 15
+(gdb) n
+248		sub	x0, x0, 1			//number -1
+(gdb) n
+250		mov	x6, x0				//moving random number to x6
+(gdb) n
+251		scvtf	d6, x6				//store x6 as float in d6
+(gdb) n
+253		mov	x7, 2147483647			//store RAND_MAX in x7
+(gdb) n
+254		scvtf	d7, x7				//store x7 as float in d7
+(gdb) n
+256	        scvtf   d8, x1                          //store x1(lower bound) as float in d8
+(gdb) n
+257	        scvtf   d9, x2                          //store x2(upper bound) as float in d9
+(gdb) n
+259		mov	x0, xzr				//move 0 to xo
+(gdb) n
+260		bl	rand				//call function rand()
+(gdb) n
+261		scvtf	d0, x0				//storing the random number in d0 as float
+(gdb) n
+263		fdiv	d0, d0, d7			//rand/RAND_MAX
+(gdb) n
+264		fadd	d0, d0, d6			//rand(float between 0.0 and 1.0) + d6(float between 0.0 and 15.0)
+(gdb) n
+266		fcmp	d0, 0.0				//validation
+(gdb) n
+267		b.eq	while
+(gdb) n
+269	        fcmp    d0, 0.0				//validation
+(gdb) n
+270	        b.lt    while
+(gdb) n
+272	        ldp     x29, x30, [sp], 16              //end funtion
+(gdb) n
+while () at proj.s:273
+273	        ret                                     //return
+(gdb) n
+loop1 () at proj.s:100
+100		mov	x0, xzr				//move 0 to x0
+(gdb) n
+101		bl	rand				//call rand()
+(gdb) n
+102		and	x0, x0, 0xF			//AND 15
+(gdb) n
+104		cmp	x0, 6				//compare x0 and 6
+(gdb) n
+105		b.gt	next				//if greater than, branch to next
+(gdb) n
+
+Breakpoint 1, randomNum () at proj.s:230
+230	        stp     x29, x30, [sp, -16]!
+(gdb) n
+231	        mov     x29, sp
+(gdb) n
+while () at proj.s:245
+245	        mov     x0, xzr                         //move 0 to x0
+(gdb) n
+246	        bl      rand                            //call function rand()
+(gdb) n
+247	        and     x0, x0, 0xF			//AND with 15 to make it in range of 15
+(gdb) n
+248		sub	x0, x0, 1			//number -1
+(gdb) n
+250		mov	x6, x0				//moving random number to x6
+(gdb) n
+251		scvtf	d6, x6				//store x6 as float in d6
+(gdb) n
+253		mov	x7, 2147483647			//store RAND_MAX in x7
+(gdb) n
+254		scvtf	d7, x7				//store x7 as float in d7
+(gdb) n
+256	        scvtf   d8, x1                          //store x1(lower bound) as float in d8
+(gdb) n
+257	        scvtf   d9, x2                          //store x2(upper bound) as float in d9
+(gdb) n
+259		mov	x0, xzr				//move 0 to xo
+(gdb) n
+260		bl	rand				//call function rand()
+(gdb) n
+261		scvtf	d0, x0				//storing the random number in d0 as float
+(gdb) n
+263		fdiv	d0, d0, d7			//rand/RAND_MAX
+(gdb) n
+264		fadd	d0, d0, d6			//rand(float between 0.0 and 1.0) + d6(float between 0.0 and 15.0)
+(gdb) n
+266		fcmp	d0, 0.0				//validation
+(gdb) n
+267		b.eq	while
+(gdb) r[Kr
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y[Kn
+Program not restarted.
+(gdb) y[Kr
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/ugc/mdahnafmasud.eusa/CPSC355/project2/proj Eusa 10 10
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+Eusa
+
+Uncovered Board:
+
+Breakpoint 1, randomNum () at proj.s:230
+230	        stp     x29, x30, [sp, -16]!
+(gdb) b randomNum
+Note: breakpoint 1 also set at pc 0x40099c.
+Breakpoint 2 at 0x40099c: file proj.s, line 230.
+(gdb) n
+231	        mov     x29, sp
+(gdb) n
+while () at proj.s:245
+245	        mov     x0, xzr                         //move 0 to x0
+(gdb) n
+246	        bl      rand                            //call function rand()
+(gdb) n
+247	        and     x0, x0, 0xF			//AND with 15 to make it in range of 15
+(gdb) n
+248		sub	x0, x0, 1			//number -1
+(gdb) n
+250		mov	x6, x0				//moving random number to x6
+(gdb) n
+251		scvtf	d6, x6				//store x6 as float in d6
+(gdb) n
+253		mov	x7, 2147483647			//store RAND_MAX in x7
+(gdb) s
+254		scvtf	d7, x7				//store x7 as float in d7
+(gdb) s
+256	        scvtf   d8, x1                          //store x1(lower bound) as float in d8
+(gdb) s
+257	        scvtf   d9, x2                          //store x2(upper bound) as float in d9
+(gdb) s
+259		mov	x0, xzr				//move 0 to xo
+(gdb) s
+260		bl	rand				//call function rand()
+(gdb) s
+261		scvtf	d0, x0				//storing the random number in d0 as float
+(gdb) s
+263		fdiv	d0, d0, d7			//rand/RAND_MAX
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 21430] will be killed.
+
+Quit anyway? (y or n) y
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/project2mdahnafmasud.eusa@csa3:~/CPSC355/project2$ gdb proj[13@cc proj.s -g -o[C[C[C[C[C[1Pm4 proj.asm > proj.sgcc proj.s -g -o proj[13Pdb[C[C[C[C[C[13@cc proj.s -g -o[C[C[C[C[C[1Pm4 proj.asm > proj.sgcc proj.s -g -o proj[13Pdb[C[C[C[C[C
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from proj...done.
+(gdb) set args Eusa 10 10
+(gdb) r
+Starting program: /home/ugc/mdahnafmasud.eusa/CPSC355/project2/proj Eusa 10 10
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+Eusa
+
+Uncovered Board:
+0.51	12.00	$	12.60	-3.75	4.44	$	7.38	$	6.96	
+$	13.15	$	2.24	10.53	-6.88	3.43	-8.46	9.91	13.39	
+11.63	$	10.56	-8.37	-8.92	-13.92	1.61	-12.69	-0.14	-9.99	
+10.37	-5.81	7.91	$	-14.58	-7.37	-5.05	-5.76	0.43	9.09	
+-14.87	10.57	-0.42	12.96	-13.35	-3.32	$	-9.04	$	14.84	
+9.61	-10.19	-4.68	-4.58	-4.06	-4.18	-9.44	2.78	-7.06	7.20	
+-10.91	9.18	-10.88	-7.53	3.54	-4.86	$	-12.11	-13.69	13.12	
+-7.15	-13.38	-8.29	-8.77	14.32	-8.04	13.21	-6.15	7.15	-8.69	
+5.32	-11.67	$	-11.07	-14.07	8.28	12.49	$	-0.53	1.51	
+-5.99	-7.85	2.00	6.92	$	-7.42	-2.91	-5.55	-1.29	-2.06	
+Percentage of negative numbers: 50.00%
+Percentage of positive numbers: 37.00%
+Percentage of special tiles: 13.00%
+
+Covered Board:
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+[Inferior 1 (process 21479) exited with code 01]
+(gdb) r
+Starting program: /home/ugc/mdahnafmasud.eusa/CPSC355/project2/proj Eusa 10 10
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+Eusa
+
+Uncovered Board:
+-7.34	10.87	-14.62	14.11	0.35	0.64	4.01	3.96	$	$	
+-4.88	-6.28	$	9.88	-3.55	$	-12.04	-12.36	-7.20	-0.54	
+9.24	6.04	0.93	5.47	-6.19	3.23	0.60	-8.80	$	-4.58	
+$	7.18	3.38	$	2.43	7.27	$	-5.50	$	7.05	
+-10.88	$	$	6.20	-11.92	13.03	-13.54	0.79	$	-14.35	
+$	$	14.21	-7.52	4.26	-8.26	-7.89	-13.02	$	3.36	
+-6.44	$	-5.68	4.17	-3.12	1.10	12.63	$	2.99	-11.39	
+-13.18	$	$	-13.30	-14.29	-1.12	4.18	-7.29	3.30	12.20	
+$	-2.76	-12.33	12.07	0.93	6.89	-9.49	-7.02	-8.53	-5.45	
+-1.54	10.68	-14.94	-2.92	-1.47	-1.70	13.59	2.18	-6.64	-7.53	
+Percentage of negative numbers: 43.00%
+Percentage of positive numbers: 37.00%
+Percentage of special tiles: 20.00%
+
+Covered Board:
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+[Inferior 1 (process 21484) exited with code 01]
+(gdb) r
+Starting program: /home/ugc/mdahnafmasud.eusa/CPSC355/project2/proj Eusa 10 10
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+Eusa
+
+Uncovered Board:
+-2.25	-5.30	7.41	$	$	-5.82	5.68	13.66	6.46	14.22	
+$	0.56	4.37	-1.60	9.16	-2.79	2.81	-14.92	-11.49	9.52	
+-5.32	$	-11.14	5.26	7.81	-3.11	3.87	-0.86	-2.66	-4.48	
+12.03	7.70	-8.73	$	8.15	-9.74	-13.12	-0.44	$	-11.16	
+2.87	-2.53	-4.55	6.96	-6.19	-7.49	-3.80	-4.70	8.25	$	
+-4.23	-1.44	$	-9.66	5.11	$	$	2.34	-7.33	6.87	
+0.83	-5.78	-0.29	-2.75	-11.41	-12.56	-1.51	12.16	-0.06	-5.69	
+$	$	6.05	$	-2.17	-9.40	-8.06	-7.14	6.06	5.37	
+$	13.43	5.64	$	-7.98	11.90	1.34	$	$	4.93	
+-4.48	9.05	5.66	-7.60	13.71	-13.21	$	-8.48	$	$	
+Percentage of negative numbers: 45.00%
+Percentage of positive numbers: 35.00%
+Percentage of special tiles: 20.00%
+
+Covered Board:
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+[Inferior 1 (process 21486) exited with code 01]
+(gdb) q
+]0;mdahnafmasud.eusa@csa3:~/CPSC355/project2mdahnafmasud.eusa@csa3:~/CPSC355/project2$ exit
+exit
+
+Script done on 2020-12-09 23:27:45-07:00
